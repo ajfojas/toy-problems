@@ -12,15 +12,19 @@ return [0, 1].
 */
 
 var twoSum = function(nums, target) {
-  // Iterate through the nums array to find and compare pairs to the target
+  // Iterate through the nums array and store the complement of each element (key = complement, value = index)
+  // If the complement already exists in storage, then you have both of the indices of the values that add up to the target
+
+  let complements = {};
+
   for (let i = 0; i < nums.length; i++) {
-    for (let j = i+1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        return [nums.indexOf(nums[i]), nums.lastIndexOf(nums[j])];
-      }
+    if (complements[nums[i]] >= 0) {
+      return [complements[nums[i]], i];
     }
+
+    complements[target - nums[i]] = i;
   }
   return null;
 };
 
-// This is O(1) space and O(n^2) time
+// This is O(n) space and O(n) time
