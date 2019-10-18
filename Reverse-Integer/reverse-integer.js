@@ -23,4 +23,20 @@ var reverse = function(x) {
   // Split into array, reverse, and join
   // If original number was (-), add (-) to reversed string
   // Convert back into number
+  // Determine if number is within range
+
+  let negative = x < 0 ? true : false;
+
+  let num = String(Math.abs(x));
+  num = num.split("").reverse().join("");
+  if (negative) {
+    num = "-" + num;
+  }
+  num = Number(num);
+
+  if (Math.abs(num) > Math.pow(2, 31) - 1) {
+    return 0;
+  }
+
+  return num;
 };
