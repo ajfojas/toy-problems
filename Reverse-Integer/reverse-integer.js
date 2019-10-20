@@ -40,3 +40,6 @@ var reverse = function(x) {
 
   return num;
 };
+
+// O(n) space
+// O(n) time
