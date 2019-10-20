@@ -27,4 +27,5 @@ var twoSum = function(nums, target) {
   return null;
 };
 
-// This is O(n) space and O(n) time
+// O(n) space
+// O(n) time
