@@ -44,4 +44,4 @@ var longestCommonPrefix = function(strs) {
 };
 
 // O(n) space
-// O(n^2) time
+// O(n*m) time, where n is the # strings and m is the length of each string
