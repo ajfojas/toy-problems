@@ -33,7 +33,7 @@ var isPalindrome = function(x) {
   // While start pointer index !== end pointer index
     // If start pointer === end pointer, return true
     // Else move both pointers 1 index towards the middle
-  // Return false since no matches found
+  // Return false since no matches are found
 
   if (x < 0) {
     return false;
