@@ -29,8 +29,65 @@ Output: true
 */
 
 var isValid = function(s) {
+  // Keep track of round(), square[], and curly{} bracket numbers
+  // Increment respective counts when open brackets are encountered
+  // Decrement respective counts when close brackets are encountered
+  // If any count drops below 0, return false
+  // If able to iterate through the input and all counts are 0, return true
 
+  let round = 0;
+  let square = 0;
+  let curly = 0;
+  let open;
+  let close = [];
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(') {
+      round++;
+      open = s[i];
+      close.push(')');
+    } else if (s[i] === ')') {
+      if (s[i] !== close[close.length - 1]) {
+        return false;
+      }
+      close.pop();
+      round--;
+    }
+
+    else if (s[i] === '[') {
+      square++;
+      open = s[i];
+      close.push(']');
+    } else if (s[i] === ']') {
+      if (s[i] !== close[close.length - 1]) {
+        return false;
+      }
+      close.pop();
+      square--;
+    }
+
+    else if (s[i] === '{') {
+      curly++;
+      open = s[i];
+      close.push('}');
+    } else if (s[i] === '}') {
+      if (s[i] !== close[close.length - 1]) {
+        return false;
+      }
+      close.pop();
+      curly--;
+    }
+
+    if (round < 0 || square < 0 || curly < 0) {
+      return false;
+    }
+  }
+  if (round === 0 && square === 0 && curly === 0) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
-// O(n) space
+// O(1) space
 // O(n) time
