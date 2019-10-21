@@ -21,8 +21,49 @@ Coud you solve it without converting the integer to a string?
 */
 
 var isPalindrome = function(x) {
-    
+// Without converting to a string
+  // If x is (-), return false
+  // Create a storage array
+  // Repeat until x === 0
+    // Mod x by 10
+    // Push value into array
+    // Divide x by 10
+  // Have a pointer start at the beginning of the array
+  // Have a pointer start at the end of the array
+  // While start pointer index !== end pointer index
+    // If start pointer === end pointer, return true
+    // Else move both pointers 1 index towards the middle
+  // Return false since no matches found
+
+  if (x < 0) {
+    return false;
+  }
+  if (x === 0) {
+    return true;
+  }
+
+  let digitStorage = [];
+  while (x !== 0) {
+    let digit = x % 10;
+    digitStorage.push(digit);
+    x = Math.floor(x / 10);
+  }
+
+  let LpointerIndex = 0;
+  let RpointerIndex = digitStorage.length - 1;
+  let Lpointer = digitStorage[LpointerIndex];
+  let Rpointer = digitStorage[RpointerIndex];
+  while (LpointerIndex <= RpointerIndex) {
+    if (Lpointer !== Rpointer) {
+      return false;
+    }
+    LpointerIndex++;
+    RpointerIndex--;
+    Lpointer = digitStorage[LpointerIndex];
+    Rpointer = digitStorage[RpointerIndex];
+  }
+  return true;
 };
 
-// O() space
-// O() time
+// O(n) space
+// O(n) time
