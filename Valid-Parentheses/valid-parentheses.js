@@ -29,65 +29,48 @@ Output: true
 */
 
 var isValid = function(s) {
-  // Keep track of round(), square[], and curly{} bracket numbers
-  // Increment respective counts when open brackets are encountered
-  // Decrement respective counts when close brackets are encountered
-  // If any count drops below 0, return false
-  // If able to iterate through the input and all counts are 0, return true
+  // Create a stack of open parentheses
+  // Iterate through input
+  // Push open parentheses into stack
+  // Pop closed parentheses off stack only if it matches the complement of the top of the stack
+    // Else return false
+  // If able to iterate though the input and stack is empty, return true
 
-  let round = 0;
-  let square = 0;
-  let curly = 0;
-  let open;
-  let close = [];
+  let openParenthesesStack = [];
 
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === '(') {
-      round++;
-      open = s[i];
-      close.push(')');
-    } else if (s[i] === ')') {
-      if (s[i] !== close[close.length - 1]) {
-        return false;
+    if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
+      openParenthesesStack.push(s[i]);
+    } else {
+      if (s[i] === ')') {
+        if (openParenthesesStack[openParenthesesStack.length - 1] === '(') {
+          openParenthesesStack.pop();
+        } else {
+          return false;
+        }
       }
-      close.pop();
-      round--;
-    }
-
-    else if (s[i] === '[') {
-      square++;
-      open = s[i];
-      close.push(']');
-    } else if (s[i] === ']') {
-      if (s[i] !== close[close.length - 1]) {
-        return false;
+      else if (s[i] === ']') {
+        if (openParenthesesStack[openParenthesesStack.length - 1] === '[') {
+          openParenthesesStack.pop();
+        } else {
+          return false;
+        }
       }
-      close.pop();
-      square--;
-    }
-
-    else if (s[i] === '{') {
-      curly++;
-      open = s[i];
-      close.push('}');
-    } else if (s[i] === '}') {
-      if (s[i] !== close[close.length - 1]) {
-        return false;
+      else if (s[i] === '}') {
+        if (openParenthesesStack[openParenthesesStack.length - 1] === '{') {
+          openParenthesesStack.pop();
+        } else {
+          return false;
+        }
       }
-      close.pop();
-      curly--;
-    }
-
-    if (round < 0 || square < 0 || curly < 0) {
-      return false;
     }
   }
-  if (round === 0 && square === 0 && curly === 0) {
+  if (openParenthesesStack.length === 0) {
     return true;
   } else {
     return false;
   }
 };
 
-// O(1) space
+// O(n) space
 // O(n) time
