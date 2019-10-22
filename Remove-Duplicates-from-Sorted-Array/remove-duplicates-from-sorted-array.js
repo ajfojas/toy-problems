@@ -44,7 +44,19 @@ var removeDuplicates = function(nums) {
   // Increment 2nd pointer to next element
   // Slice nums array from 0 to i+1
   // Return new nums length
+
+  let i = 0;
+  let j = 1;
+
+  while (j < nums.length) {
+    if (nums[i] !== nums[j]) {
+      nums[++i] = nums[j];
+    }
+    j++;
+  }
+
+  return i+1;
 };
 
-// O() space
-// O() time
+// O(1) space
+// O(n) time
