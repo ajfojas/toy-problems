@@ -12,7 +12,13 @@ If you have figured out the O(n) solution, try coding another solution using the
 */
 
 var maxSubArray = function(nums) {
-    
+  // Keep track of current sum, which resets to 0 every time running total < 0
+  // Keep track of largest sum
+  // Iterate through nums array
+    // If current sum + element > 0, add element to current sum
+      // If current sum > largest sum, update largest sum
+    // Else, reset current sum to 0
+  // Return largest sum
 };
 
 // O() space
