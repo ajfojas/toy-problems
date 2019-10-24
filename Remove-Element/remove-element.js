@@ -40,48 +40,22 @@ for (int i = 0; i < len; i++) {
 */
 
 var removeElement = function(nums, val) {
-  // Account for edge case where nums.length === 0
-  // Have one pointer start at the beginning of nums array
-  // Have another pointer start at the end of nums array
-  // While i !== j
-    // If nums[i] === val
-      // While nums[j] === val && i !== j
-        // Decrement j--
-      // Swap nums[i] and nums[j]
-    // Else
-      // Increment i++
-  // If i === nums.length - 1
-    // Return i + 1
-  // Return i
+  // Create a slow tracker that builds all values !== val
+  // Iterate through nums array
+    // If nums[i] !== val
+      // nums[j] = nums[i]
+      // Increment j++
+  // Return j;
 
-  if (nums.length === 0) {
-    return 0;
-  }
+  let j = 0;
 
-  let i = 0;
-  let j = nums.length - 1;
-
-  while (i !== j) {
-    if (nums[i] === val) {
-      while (nums[j] === val && i !== j) {
-        j--;
-      }
-      swap(i, j, nums);
-    } else {
-      i++;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== val) {
+      nums[j++] = nums[i];
     }
   }
-  if (i === nums.length - 1 && nums[i] !== val) {
-    return i + 1;
-  } else {
-    return i;
-  }
-};
 
-let swap = (element1, element2, arr) => {
-  let temp = arr[element1];
-  arr[element1] = arr[element2];
-  arr[element2] = temp;
+  return j;
 }
 
 // O(1) space
