@@ -32,5 +32,5 @@ var maxSubArray = function(nums) {
   return largestSum;
 };
 
-// O() space
-// O() time
+// O(1) space
+// O(n) time
