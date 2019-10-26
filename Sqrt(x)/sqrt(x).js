@@ -21,11 +21,33 @@ var mySqrt = function(x) {
   // Set left bound to 2, set right bound to x/2
   // While left <= right
     // Take num = (left + right) / 2, compute num * num
-      // If > x, move decrement right bound by 1
-      // If < x, move increment left bound by 1
-      // If === x, return x
+      // If > x, decrement right bound by 1
+      // If < x, increment left bound by 1
+      // If === x, return num
   // Return right
+
+  if (x < 2) {
+    return x;
+  }
+
+  let left = 2;
+  let right = Math.floor(x/2);
+
+  while (left <= right) {
+    let num = (left + right) / 2;
+    let numSq = num * num;
+    if (numSq > x) {
+      right--;
+    } else if (numSq < x) {
+      left++;
+    } else {
+      return num;
+    }
+  }
+
+  return right;
 };
 
-// O() space
-// O() time
+
+// O(1) space
+// O(n) time
