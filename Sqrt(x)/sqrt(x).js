@@ -18,11 +18,11 @@ Explanation: The square root of 8 is 2.82842..., and since the decimal part is t
 var mySqrt = function(x) {
   // For x >= 2, the square root is always smaller than x/2 and greater than 2:   2 <= sqrt(x) <= x/2
   // If x < 2, return x
-  // Set left bound to 2, set right bound to x/2
+  // Set left bound to 2, set right bound to Math.ceil(x/2)
   // While left <= right
-    // Take num = (left + right) / 2, compute num * num
-      // If > x, decrement right bound by 1
-      // If < x, increment left bound by 1
+    // Take num = left + (right - left) / 2, compute num * num
+      // If > x, right = num - 1
+      // If < x, left = num + 1
       // If === x, return num
   // Return right
 
@@ -31,15 +31,15 @@ var mySqrt = function(x) {
   }
 
   let left = 2;
-  let right = Math.floor(x/2);
+  let right = Math.ceil(x/2);
 
   while (left <= right) {
-    let num = (left + right) / 2;
-    let numSq = num * num;
-    if (numSq > x) {
-      right--;
-    } else if (numSq < x) {
-      left++;
+    let num = Math.floor(left + (right - left) / 2);
+    let num2 = num * num;
+    if (num2 > x) {
+      right = num - 1;
+    } else if (num2 < x) {
+      left = num + 1;
     } else {
       return num;
     }
@@ -48,6 +48,5 @@ var mySqrt = function(x) {
   return right;
 };
 
-
 // O(1) space
-// O(n) time
+// O(log(n)) time
