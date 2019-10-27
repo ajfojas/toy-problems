@@ -24,7 +24,48 @@ var copyRandomList = function(head) {
   // Keep track of which nodes we've visited by storing them in a map
   // Only create new nodes that do not yet exist in the store
   // Return head of new list
+
+  if (head === null) {
+    return null;
+  }
+
+  // Storage for visited nodes
+  let visited = new Map();
+
+  let getClonedNode = (node) => {
+    // If node exists
+    if (node !== null) {
+      // Check to see if node is in storage
+      if (visited.has(node)) {
+        // If yes, return reference to new node
+        return visited.get(node);
+      } else {
+        // If not, store reference, then return it to new node
+        visited.set(node, new Node(node.val, null, null))
+        return visited.get(node);
+      }
+    }
+    return null;
+  };
+
+  let oldNode = head;
+  // Create new head node
+  let newNode = new Node(oldNode.val);
+  visited.set(oldNode, newNode);
+
+  // Iterate on linked list until all nodes are cloned
+  while (oldNode !== null) {
+    // Get the clones of the nodes referenced by the random and next pointers
+    newNode.random = getClonedNode(oldNode.random);
+    newNode.next = getClonedNode(oldNode.next);
+
+    // Move one step ahead in the linked list
+    oldNode = oldNode.next;
+    newNode = newNode.next;
+  }
+
+  return visited.get(head);
 };
 
-// O() space
-// O() time
+// O(n) space
+// O(n) time
