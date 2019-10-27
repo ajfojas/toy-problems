@@ -28,7 +28,26 @@ var climbStairs = function(n) {
     // Base case: return when number of steps remaining === 0
     // Recursive case: if steps remaining - climbing option >= 0, keep recursing
   // Return total distinct ways to climb
+
+  let totalWays = 0;
+  let climbOptions = [2, 1];
+
+  let recurse = (remainingSteps) => {
+    for (let i = 0; i < climbOptions.length; i++) {
+      if (remainingSteps === 0) {
+        totalWays++;
+        return;
+      }
+
+      if (remainingSteps - climbOptions[i] >= 0) {
+        recurse(remainingSteps - climbOptions[i]);
+      }
+    }
+  };
+  recurse(n);
+
+  return totalWays;
 };
 
-// O() space
-// O() time
+// O(n) space
+// O(2^n) time
