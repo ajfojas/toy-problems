@@ -22,7 +22,12 @@ Explanation: There are three ways to climb to the top.
 */
 
 var climbStairs = function(n) {
-
+  // Keep track of total number of distinct ways to climb to the top
+  // Have a recursive function that intakes the number of steps remaining
+    // Iterate through number of climbing options
+    // Base case: return when number of steps remaining === 0
+    // Recursive case: if steps remaining - climbing option >= 0, keep recursing
+  // Return total distinct ways to climb
 };
 
 // O() space
