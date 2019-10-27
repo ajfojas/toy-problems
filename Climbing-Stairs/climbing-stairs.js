@@ -22,32 +22,26 @@ Explanation: There are three ways to climb to the top.
 */
 
 var climbStairs = function(n) {
-  // Keep track of total number of distinct ways to climb to the top
-  // Have a recursive function that intakes the number of steps remaining
-    // Iterate through number of climbing options
-    // Base case: return when number of steps remaining === 0
-    // Recursive case: if steps remaining - climbing option >= 0, keep recursing
-  // Return total distinct ways to climb
+  // You can reach the ith step in 2 different ways:
+  // 1. Taking a step of 1 from i-1 step
+  // 2. Taking a step of 2 from i-2 step
+  // The total # ways to reach the ith step === # ways to reach i-1 step + # ways to reach i-2 step
 
-  let totalWays = 0;
-  let climbOptions = [2, 1];
+  if (n === 1) {
+    return 1;
+  }
 
-  let recurse = (remainingSteps) => {
-    for (let i = 0; i < climbOptions.length; i++) {
-      if (remainingSteps === 0) {
-        totalWays++;
-        return;
-      }
+  let step = [];
+  for (let i = 0; i <= 2; i++) {
+    step[i] = i;
+  }
 
-      if (remainingSteps - climbOptions[i] >= 0) {
-        recurse(remainingSteps - climbOptions[i]);
-      }
-    }
-  };
-  recurse(n);
+  for (let i = 3; i <= n; i++) {
+    step[i] = step[i-1] + step[i-2];
+  }
 
-  return totalWays;
+  return step[n];
 };
 
 // O(n) space
-// O(2^n) time
+// O(n) time
