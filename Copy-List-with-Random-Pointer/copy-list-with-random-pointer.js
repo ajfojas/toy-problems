@@ -12,8 +12,18 @@ Node 1's value is 1, both of its next and random pointer points to Node 2.
 Node 2's value is 2, its next pointer points to null and its random pointer points to itself.
 */
 
+// Definition for a Node
+let Node = (val, next, random) => {
+  this.val = val;
+  this.next = next;
+  this.random = random;
+};
+
 var copyRandomList = function(head) {
-    
+  // Iterate over the given list, creating new nodes via the random pointer or the next pointer
+  // Keep track of which nodes we've visited by storing them in a map
+  // Only create new nodes that do not yet exist in the store
+  // Return head of new list
 };
 
 // O() space
