@@ -22,6 +22,30 @@ var addBinary = function(a, b) {
     // Else carry over = false
     // Output = sum + output
   // Return output
+
+  let output = '';
+  let str1 = a.split('').reverse().join('') + '0';
+  let str2 = b.split('').reverse().join('') + '0';
+  let strlen = str1.length >= str2.length ? str1.length : str2.length;
+  let carryOver = false;
+
+  for (let i = 0; i < strlen; i++) {
+    let sum = Number(str1[i] || 0) + Number(str2[i] || 0);
+    if (carryOver === true) {
+      sum++;
+    }
+    if (sum > 1) {
+      sum = sum - 2;
+      carryOver = true;
+    } else {
+      carryOver = false;
+    }
+    output = sum + output;
+  }
+  if (output[0] === '0') {
+    return output.substring(1);
+  }
+  return output;
 };
 
 // O(n) space
