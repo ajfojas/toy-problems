@@ -13,8 +13,16 @@ Output: "10101"
 */
 
 var addBinary = function(a, b) {
-  
+  // Keep track of output with empty string
+  // Determine longest string length + 1
+  // Iterate longest length in reverse
+    // Add both digits at ith element
+    // Check for carry over, add 1 if true
+    // If sum > 1, subtract by 2, carry over = true
+    // Else carry over = false
+    // Output = sum + output
+  // Return output
 };
 
-// O() space
-// O() time
+// O(n) space
+// O(n) time
