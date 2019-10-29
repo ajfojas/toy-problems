@@ -16,7 +16,19 @@ function ListNode(val) {
 }
 
 var addTwoNumbers = function(l1, l2) {
-    
+  // Use l1 and l2 to traverse their respective lists
+  // Keep track of current new node
+  // Keep track of carry over, initialized to false
+  // Create new list head from l1 and l2 heads
+  // Move l1 and l2 to their next nodes
+  // While l1 !== null || l2 !== null
+    // Sum both elements
+    // Add carryover if needed, carryover = false
+    // If sum >= 10, subtract sum by 10, carryover = true
+    // Create a new node with sum as value property
+    // Current new node.next = newly made node
+    // Current node = current node.next
+  // Return head of new list
 };
 
 // O() space
