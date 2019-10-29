@@ -60,6 +60,11 @@ var isSubtree = function(s, t) {
       return;
     }
     if (DFaccess) {
+      if (node1 === null || node2 === null) {
+        output = false;
+        DFaccess = false;
+        return;
+      }
       if (node1.val === node2.val) {
         output = true;
       } else {
@@ -73,22 +78,27 @@ var isSubtree = function(s, t) {
   }
 
   let BFrecurse = (node) => {
-    if (node.left !== null) {
-      queue.push(node.left);
-    }
-    if (node.right !== null) {
-      queue.push(node.right);
+    if (node) {
+      if (node.left !== null) {
+        queue.push(node.left);
+      }
+      if (node.right !== null) {
+        queue.push(node.right);
+      }
     }
 
     let workingNode = queue.shift();
-    if (workingNode.val === t.val) {
+    if (workingNode && workingNode.val === t.val) {
       DFaccess = true;
       DFrecurse(workingNode, t);
     }
-    BFrecurse(queue[0])
+
+    if (output === false) {
+      BFrecurse(queue[0]);
+    }
   };
   
-  BFrecurse(queue[0])
+  BFrecurse(queue[0]);
 
   return output;
 };
