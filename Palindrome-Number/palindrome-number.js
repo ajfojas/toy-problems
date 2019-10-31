@@ -65,5 +65,23 @@ var isPalindrome = function(x) {
   return true;
 };
 
+/* Another way to write it:
+  let isPalindrome = (x) => {
+    if (x < 0) {
+      return false;
+    }
+
+    let num = x;
+    let revNum = 0;
+
+    while (num) {
+      revNum = (revNum * 10) + (num % 10);
+      num = Math.floor(num / 10);
+    }
+
+    return (revNum === x);
+  };
+*/
+
 // O(n) space
 // O(n) time
