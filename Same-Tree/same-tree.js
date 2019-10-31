@@ -42,7 +42,15 @@ var isSameTree = function(p, q) {
   // If nodes exist and both node.val are equal, recursively call isSameTree on both left and right nodes
   // Else if both nodes === null, return true
   // Else, return true
+  
+  if (p === null && q === null) {
+    return true;
+  } else if (p !== null && q !== null && p.val === q.val) {
+    return (isSameTree(p.left, q.left) && isSameTree(p.right, q.right));
+  } else {
+    return false;
+  }
 };
 
-// O() space
-// O() time
+// O(1) space
+// O(n) time
