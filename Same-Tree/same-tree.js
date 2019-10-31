@@ -52,5 +52,5 @@ var isSameTree = function(p, q) {
   }
 };
 
-// O(1) space
-// O(n) time
+// O(n) space, recursion call stack can be at most n
+// O(n) time, visiting each node once
