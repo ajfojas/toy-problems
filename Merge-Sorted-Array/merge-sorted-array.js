@@ -14,7 +14,14 @@ Output: [1,2,2,3,5,6]
 */
 
 var merge = function(nums1, m, nums2, n) {
-    
+  // Have one pointer start at the right of nums1
+  // Have one pointer start at m
+  // Have one pointer start at n
+  // While n >= 0
+    // If nums2[n] >= nums1[m], swap nums2[n] with nums1[pointer], n--
+    // Else, swap nums1[m] with nums1[pointer], m--
+    // Pointer--
+  // Return nums1
 };
 
 // O() space
