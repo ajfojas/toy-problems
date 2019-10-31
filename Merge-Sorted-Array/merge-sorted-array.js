@@ -18,11 +18,32 @@ var merge = function(nums1, m, nums2, n) {
   // Have one pointer start at m
   // Have one pointer start at n
   // While n >= 0
-    // If nums2[n] >= nums1[m], swap nums2[n] with nums1[pointer], n--
-    // Else, swap nums1[m] with nums1[pointer], m--
+    // If nums2[n] >= nums1[m], nums1[pointer] = nums2[n], n--
+    // Else, nums1[pointer] = nums1[m], m--
     // Pointer--
   // Return nums1
+
+  if (nums2.length <= 1) {
+    return nums2;
+  }
+
+  let traverse = nums1.length - 1;
+  m = m - 1;
+  n = n - 1;
+
+  while (n >= 0) {
+    if (nums2[n] >= nums1[m]) {
+      nums1[traverse] = nums2[n];
+      n--;
+    } else {
+      nums1[traverse] = nums1[m]
+      m--;
+    }
+    traverse--;
+  }
+
+  return nums1;
 };
 
-// O() space
-// O() time
+// O(1) space, because no space is dynamically changing over time
+// O(m+n) time, because it will iterate through 2 different arrays
