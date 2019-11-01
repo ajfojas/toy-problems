@@ -26,10 +26,30 @@ var lengthOfLongestSubstring = function(s) {
   // Iterate through s
     // If char is not in set, add char in set, increment current length++
     // Else, clear set, set current iteration to pointer++
-      // If current length > longest length, longest length = current length, reset current length
-      // If longest length >= Math.ceil(s.length/2), return longest length
+    // If current length > longest length, longest length = current length, reset current length
   // Return longest length
+
+  let startChar = 0;
+  let longestLength = 0;
+  let currentLength = 0;
+  let charsSeen = new Set();
+
+  for (let i = 0; i < s.length; i++) {
+    if (!charsSeen.has(s[i])) {
+      charsSeen.add(s[i]);
+      currentLength++;
+    } else {
+      charsSeen.clear();
+      i = startChar++;
+      currentLength = 0;
+    }
+    if (currentLength > longestLength) {
+      longestLength = currentLength;
+    }
+  }
+
+  return longestLength;
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - could store each char in set
+// O(n^2) time - could have a really long unique string that is then repeated right after
