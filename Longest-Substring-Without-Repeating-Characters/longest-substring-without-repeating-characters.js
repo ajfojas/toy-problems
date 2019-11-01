@@ -19,37 +19,30 @@ Note that the answer must be a substring, "pwke" is a subsequence and not a subs
 */
 
 var lengthOfLongestSubstring = function(s) {
-  // Have a pointer start on the left
-  // Keep track of longest length with int
-  // Keep track of current length with int
   // Keep track of chars seen with set
-  // Iterate through s
-    // If char is not in set, add char in set, increment current length++
-    // Else, clear set, set current iteration to pointer++
-    // If current length > longest length, longest length = current length, reset current length
+  // Keep track of longest length
+  // Keep track of sliding window
+  // While window is within s.length
+    // If char at rWindow is not in set, add char in set, increment rWindow, update longest length if needed
+    // Else, delete char at lWindow
   // Return longest length
 
-  let startChar = 0;
-  let longestLength = 0;
-  let currentLength = 0;
   let charsSeen = new Set();
+  let longestLength = 0;
+  let lWindow = 0;
+  let rWindow = 0;
 
-  for (let i = 0; i < s.length; i++) {
-    if (!charsSeen.has(s[i])) {
-      charsSeen.add(s[i]);
-      currentLength++;
+  while (lWindow < s.length && rWindow < s.length) {
+    if (!charsSeen.has(s[rWindow])) {
+      charsSeen.add(s[rWindow++]);
+      longestLength = Math.max(longestLength, rWindow - lWindow);
     } else {
-      charsSeen.clear();
-      i = startChar++;
-      currentLength = 0;
-    }
-    if (currentLength > longestLength) {
-      longestLength = currentLength;
+      charsSeen.delete(s[lWindow++]);
     }
   }
 
   return longestLength;
 };
 
-// O(n) space - could store each char in set
-// O(n^2) time - could have a really long unique string that is then repeated right after
+// O(n) space - could add all chars of s in set
+// O(n) time - could iterate through all chars in s at most twice
