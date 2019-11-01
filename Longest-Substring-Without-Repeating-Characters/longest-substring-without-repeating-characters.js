@@ -19,7 +19,16 @@ Note that the answer must be a substring, "pwke" is a subsequence and not a subs
 */
 
 var lengthOfLongestSubstring = function(s) {
-    
+  // Have a pointer start on the left
+  // Keep track of longest length with int
+  // Keep track of current length with int
+  // Keep track of chars seen with set
+  // Iterate through s
+    // If char is not in set, add char in set, increment current length++
+    // Else, clear set, set current iteration to pointer++
+      // If current length > longest length, longest length = current length, reset current length
+      // If longest length >= Math.ceil(s.length/2), return longest length
+  // Return longest length
 };
 
 // O() space - 
