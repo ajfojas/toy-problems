@@ -26,7 +26,13 @@ P     I
 */
 
 var convert = function(s, numRows) {
-    
+  // Create groupings arr of numRows elements filled with empty str
+  // Keep track of which idx to put the current char in (int)
+  // Keep track of if incrementing or decrementing (bool)
+  // Iterate through s
+    // Push current char in appropriate index of groupings arr
+    // Increment/decrement idx depending on bool
+  // return groupings arr.join('')
 };
 
 // O() space - 
