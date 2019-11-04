@@ -33,6 +33,28 @@ var convert = function(s, numRows) {
     // Push current char in appropriate index of groupings arr
     // Increment/decrement idx depending on bool
   // return groupings arr.join('')
+
+  if (numRows <= 1) {
+    return s;
+  }
+
+  let groupings = Array(numRows).fill('');
+  let idx = 0;
+  let incr = true;
+
+  for (let i = 0; i < s.length; i++) {
+    if (idx === groupings.length - 1) {
+      incr = false;
+    } else if (idx === 0) {
+      incr = true;
+    }
+
+    groupings[idx] += s[i];
+
+    idx = incr ? idx+1 : idx-1;
+  }
+
+  return groupings.join('');
 };
 
 // O() space - 
