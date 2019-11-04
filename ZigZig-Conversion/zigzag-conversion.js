@@ -57,5 +57,5 @@ var convert = function(s, numRows) {
   return groupings.join('');
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - groupings arr.length could be at most s.length
+// O(n) time - iterate through s
