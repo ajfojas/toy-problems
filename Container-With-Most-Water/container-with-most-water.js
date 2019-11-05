@@ -29,12 +29,27 @@ var maxArea = function(height) {
   // Have a pointer start at the left of the arr
   // Have a pointer start at the right of the arr
   // While left !== right
-    // Determine current area (min(height[i], height[j]) * (j - i))
+    // Determine current area (min(height[left], height[right]) * (right - left))
     // If current area > max area, update output
-    // If height[i] < height[j], increment i++
-    // Else, decrement j--
+    // If height[left] < height[right], increment left++
+    // Else, decrement right--
   // Return max area output
+
+  let output = 0;
+  let left = 0;
+  let right = height.length - 1;
+
+  while (left !== right) {
+    output = Math.max(output, Math.min(height[left], height[right]) * (right - left));
+    if (height[left] < height[right]) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return output;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space used
+// O(n) time - iterate through the heights array only once
