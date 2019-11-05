@@ -25,8 +25,16 @@ Output: 49
 */
 
 var maxArea = function(height) {
-    
+  // Keep track of max area called output
+  // Have a pointer start at the left of the arr
+  // Have a pointer start at the right of the arr
+  // While left !== right
+    // Determine current area (min(height[i], height[j]) * (j - i))
+    // If current area > max area, update output
+    // If height[i] < height[j], increment i++
+    // Else, decrement j--
+  // Return max area output
 };
 
-// O(n) space - groupings arr.length could be at most s.length
-// O(n) time - iterate through s
+// O() space - 
+// O() time - 
