@@ -18,7 +18,13 @@ Although the above answer is in lexicographical order, your answer could be in a
 */
 
 var letterCombinations = function(digits) {
-    
+  // Have an object of digits to letters
+  // Have an output arr
+  // Have a recursive function that takes in an empty string and index of digits parameter
+    // Iterate through digit's letters
+      // If currently built string length === digits.length, push it to output arr, return
+      // Call recursive function with each letter added to currently built string and incremented index
+  // Return output
 };
 
 // O() space - 
