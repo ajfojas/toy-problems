@@ -21,7 +21,12 @@ function ListNode(val) {
 }
 
 var removeNthFromEnd = function(head, n) {
-
+  // Iterate through LL to count #nodes
+  // Subtract n from count called countdown
+  // While countdown > 0, traverse LL
+    // If countdown === 1, move node.next to node.next.next, set node.next.next to null
+    // Decrement countdown--
+  // Return head
 };
 
 // O() space - 
