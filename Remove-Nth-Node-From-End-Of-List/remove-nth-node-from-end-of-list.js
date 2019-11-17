@@ -22,12 +22,39 @@ function ListNode(val) {
 
 var removeNthFromEnd = function(head, n) {
   // Iterate through LL to count #nodes
-  // Subtract n from count called countdown
-  // While countdown > 0, traverse LL
-    // If countdown === 1, move node.next to node.next.next, set node.next.next to null
-    // Decrement countdown--
+  // Subtract n from count
+  // While count > 0, traverse LL
+    // If count === 1, move node.next to node.next.next, set node.next.next to null
+    // Decrement count--
   // Return head
+
+  if (head === null) {
+    return head;
+  }
+
+  let traverse = head;
+  let count = 0;
+  while (traverse !== null) {
+    count++;
+    traverse = traverse.next;
+  }
+  count -= n;
+  traverse = head;
+  traverseNext = head.next;
+  if (count === 0) {
+    head = head.next;
+  }
+  while (count > 0) {
+    if (count === 1) {
+      traverse.next = traverseNext.next;
+      traverseNext.next = null;
+    }
+    traverse = traverse.next;
+    traverseNext = traverseNext.next;
+    count--;
+  }
+  return head;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through LL twice
