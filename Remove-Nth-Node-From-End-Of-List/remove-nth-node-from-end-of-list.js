@@ -21,40 +21,27 @@ function ListNode(val) {
 }
 
 var removeNthFromEnd = function(head, n) {
-  // Iterate through LL to count #nodes
-  // Subtract n from count
-  // While count > 0, traverse LL
-    // If count === 1, move node.next to node.next.next, set node.next.next to null
-    // Decrement count--
-  // Return head
+  // Create a dummy node before the head of the LL
+  // Have 2 pointers, 1st starting at the beginning and the 2nd starting at n nodes ahead
+  // While 2nd pointer !== null
+    // Move both pointers to node.next
+  // 1st pointer.next = 1st pointer.next.next
+  // Return dummy.next
 
-  if (head === null) {
-    return head;
+  let dummy = new ListNode(0);
+  dummy.next = head;
+  let firstPointer = dummy;
+  let secondPointer = dummy;
+  for (let i = 0; i <= n; i++) {
+    secondPointer = secondPointer.next;
   }
-
-  let traverse = head;
-  let count = 0;
-  while (traverse !== null) {
-    count++;
-    traverse = traverse.next;
+  while (secondPointer !== null) {
+    firstPointer = firstPointer.next;
+    secondPointer = secondPointer.next;
   }
-  count -= n;
-  traverse = head;
-  traverseNext = head.next;
-  if (count === 0) {
-    head = head.next;
-  }
-  while (count > 0) {
-    if (count === 1) {
-      traverse.next = traverseNext.next;
-      traverseNext.next = null;
-    }
-    traverse = traverse.next;
-    traverseNext = traverseNext.next;
-    count--;
-  }
-  return head;
+  firstPointer.next = firstPointer.next.next;
+  return dummy.next;
 };
 
 // O(1) space - no additional dynamic space is used
-// O(n) time - at most, iterate through LL twice
+// O(n) time - at most, iterate through LL once
