@@ -29,7 +29,7 @@ var generateParenthesis = function(n) {
       if (str.length === 2*n && balance === 0) {
         results.push(str);
         return;
-      } else if (balance < 0 || str.length === 2*n && balance !== 0) {
+      } else if (balance < 0 || balance > n || str.length === 2*n && balance !== 0) {
         return;
       }
 
