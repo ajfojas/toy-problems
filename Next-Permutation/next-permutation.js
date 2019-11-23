@@ -13,15 +13,44 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 */
 
 var nextPermutation = function(nums) {
-  // Iterate through nums
-    // If nums[i+1] > nums[i], break
-    // If i = nums.length-1, return nums.sort()
   // Find 1st decr element from right to left
+    // If i === 0, return nums.sort
   // Find next larger element from current idx to right
   // Swap
   // Reverse subarray from 1st decr element idx to right
   // Return nums
+
+  for (let i = nums.length - 1; i >= 0; i--) {
+    if (nums[i] < nums[i + 1]) {
+      for (let j = nums.length - 1; j >= i; j--) {
+        if (nums[j] > nums[i]) {
+          swap(i, j, nums);
+          reverse(i + 1, nums.length - 1, nums);
+          return nums;
+          break;
+        }
+      }
+      break;
+    }
+    if (i === 0) return nums.sort((a,b) => a - b);
+  }
 };
 
-// O() space - 
-// O() time - 
+let swap = (el1, el2, arr) => {
+  let temp = arr[el1];
+  arr[el1] = arr[el2];
+  arr[el2] = temp;
+  return arr;
+};
+
+let reverse = (i, j, arr) => {
+  while (i < j) {
+    swap(i, j, arr);
+    i++;
+    j--;
+  }
+  return arr;
+}
+
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through input twice
