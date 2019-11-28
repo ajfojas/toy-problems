@@ -27,7 +27,6 @@ var nextPermutation = function(nums) {
           swap(i, j, nums);
           reverse(i + 1, nums.length - 1, nums);
           return nums;
-          break;
         }
       }
       break;
