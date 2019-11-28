@@ -20,7 +20,17 @@ Output: -1
 */
 
 var search = function(nums, target) {
-  
+  // Have a left and right pointer
+  // While left <= right
+    // Have/update a mid pointer
+    // If nums[mid] === target, return mid
+    // If nums[mid] >= nums[left]
+      // If target >= nums[left] && target < nums[mid], right = mid - 1
+      // Else, left = mid + 1
+    // Else
+      // If target > nums[mid] && target <= nums[right], left = mid + 1
+      // Else, right = mid - 1
+  // Return -1
 };
 
 // O() space - 
