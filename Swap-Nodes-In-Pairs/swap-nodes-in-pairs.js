@@ -9,10 +9,10 @@ Given 1->2->3->4, you should return the list as 2->1->4->3.
 */
 
 // Definition for singly-linked list.
-// function ListNode(val) {
-//   this.val = val;
-//   this.next = null;
-// }
+function ListNode(val) {
+  this.val = val;
+  this.next = null;
+}
 
 var swapPairs = function(head) {
   // If !head.next, return head
@@ -28,7 +28,27 @@ var swapPairs = function(head) {
     // B = B.next
     // C = C.next.next.next
   // Return dummy node.next
+
+  if (!head || !head.next) return head;
+
+  let dummy = new ListNode('dummy');
+  dummy.next = head;
+  let Aptr = dummy;
+  let Bptr = dummy.next;
+  let Cptr = dummy.next.next;
+
+  while (true) {
+    Aptr.next = Cptr;
+    Bptr.next = Cptr.next;
+    Cptr.next = Bptr;
+    if (!Bptr.next || !Bptr.next.next) break;
+    Aptr = Aptr.next.next;
+    Bptr = Bptr.next;
+    Cptr = Cptr.next.next.next;
+  }
+
+  return dummy.next;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - only constant space is used
+// O(n) time - at most, iterate through the LL once
