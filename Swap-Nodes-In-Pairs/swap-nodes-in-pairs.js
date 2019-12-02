@@ -15,7 +15,19 @@ Given 1->2->3->4, you should return the list as 2->1->4->3.
 // }
 
 var swapPairs = function(head) {
-
+  // If !head.next, return head
+  // Create a dummy node before head node
+  // Have A ptr @ dummy node
+  // Have B ptr @ dummy node.next
+  // Have C ptr @ dummy node.next.next
+  // While C.next && C.next.next
+    // A.next = C
+    // B.next = C.next
+    // C.next = B
+    // A = A.next.next
+    // B = B.next
+    // C = C.next.next.next
+  // Return dummy node.next
 };
 
 // O() space - 
