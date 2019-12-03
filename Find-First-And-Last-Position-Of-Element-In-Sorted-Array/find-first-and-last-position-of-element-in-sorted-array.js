@@ -21,7 +21,61 @@ var searchRange = function(nums, target) {
   // Binary search for ending position
     // Return index if found or -1 if not found
   // Return [starting, ending]
+
+  let start = binaryStart(nums, target);
+  let end = binaryEnd(nums, target);
+  return [start, end];
 };
 
-// O() space - 
-// O() time - 
+let binaryStart = (arr, target) => {
+  let L = 0;
+  let R = arr.length - 1;
+
+  while (L <= R) {
+    let mid = Math.floor((L + R) / 2);
+    if (arr[mid] === target) {
+      if (arr[mid - 1] !== target) {
+        return mid;
+      } else {
+        // Start target is further to the left
+        R = mid - 1;
+      }
+    } else if (target > arr[mid]) {
+      // Start target is to the right
+      L = mid + 1;
+    } else {
+      // Start target is to the left
+      R = mid - 1;
+    }
+  }
+
+  return -1;
+};
+
+let binaryEnd = (arr, target) => {
+  let L = 0;
+  let R = arr.length - 1;
+
+  while (L <= R) {
+    let mid = Math.floor((L + R) / 2);
+    if (arr[mid] === target) {
+      if (arr[mid + 1] !== target) {
+        return mid;
+      } else {
+        // End target is further to the right
+        L = mid + 1;
+      }
+    } else if (target < arr[mid]) {
+      // End target is to the left
+      R = mid - 1;
+    } else {
+      // End target is to the right
+      L = mid + 1;
+    }
+  }
+
+  return -1;
+};
+
+// O(1) space - only constant space is used
+// O(log(n)) time - at most, do binary search twice separately
