@@ -50,7 +50,18 @@ The given board size is always 9x9.
 */
 
 var isValidSudoku = function(board) {
-
+  // Have a checker func that intakes an arr with length 9
+    // Create an empty set
+    // For each element
+      // If element is ".", continue
+      // If element is not in set, add it to set
+      // Else return false
+    // Return true
+  // Take each row and check it thru the checker func
+  // Take each column and check it thru the checker func
+  // Take each 3x3 sub-grid and check it thru the checker func
+  // If all 3 above func calls return true, return true
+  // Else, return false
 };
 
 // O() space - 
