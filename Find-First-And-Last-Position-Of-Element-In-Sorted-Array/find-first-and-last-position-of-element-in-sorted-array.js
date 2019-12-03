@@ -16,7 +16,11 @@ Output: [-1,-1]
 */
 
 var searchRange = function(nums, target) {
-  
+  // Binary search for starting position
+    // Return index if found or -1 if not found
+  // Binary search for ending position
+    // Return index if found or -1 if not found
+  // Return [starting, ending]
 };
 
 // O() space - 
