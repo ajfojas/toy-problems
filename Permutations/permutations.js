@@ -16,7 +16,14 @@ Output:
 */
 
 var permute = function(nums) {
-  
+  // Have a results arr that stores answers
+  // Create a recursive func that intakes an arr of options and a developing answer
+    // If ans.length === nums.length, push ans into results arr, return
+    // For each option
+      // Add that option to the developing ans
+      // Recurse with options.slice(0, i).concat(options(i+1)) and developing ans
+  // Kick off recursion with nums arr and empty arr
+  // Return results arr
 };
 
 // O() space - 
