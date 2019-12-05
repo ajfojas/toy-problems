@@ -24,7 +24,21 @@ var permute = function(nums) {
       // Recurse with options.slice(0, i).concat(options(i+1)) and developing ans
   // Kick off recursion with nums arr and empty arr
   // Return results arr
+
+  let results = [];
+
+  let recurse = (options, ans) => {
+    if (ans.length === nums.length) {
+      results.push(ans);
+      return;
+    }
+    for (let i = 0; i < options.length; i++) {
+      recurse(options.slice(0, i).concat(options.slice(i + 1)), ans.concat(options[i]));
+    }
+  };
+  recurse(nums, []);
+  return results;
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - at most, there will be n recursive call stacks
+// O(n^n) time - there are n branches that each go n call stacks deep
