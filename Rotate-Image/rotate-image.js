@@ -42,7 +42,14 @@ rotate the input matrix in-place such that it becomes:
 ]
 */
 var rotate = function(matrix) {
-  
+  // Rotate layer by layer
+    // Iterate through each element of each layer
+      // Store top border element in temp variable
+      // Put left bordered element in top bordered element
+      // Put top bordered element in right bordered element
+      // Put right bordered element in bottom bordered element
+      // Put bottom bordered element in left bordered element
+  // Return matrix
 };
 
 // O() space - 
