@@ -46,11 +46,32 @@ var rotate = function(matrix) {
     // Iterate through each element of each layer
       // Store top border element in temp variable
       // Put left bordered element in top bordered element
-      // Put top bordered element in right bordered element
-      // Put right bordered element in bottom bordered element
       // Put bottom bordered element in left bordered element
+      // Put right bordered element in bottom bordered element
+      // Put top bordered element in right bordered element
   // Return matrix
+
+  for (let layer = 0; layer < matrix.length / 2; layer++) {
+    for (let idx = layer; idx < matrix[layer].length - 1 - layer; idx++) {
+      // Store Top
+      let temp = matrix[layer][idx];
+
+      // Top becomes Left
+      matrix[layer][idx] = matrix[matrix.length - 1 - idx][layer];
+
+      // Left becomes Bottom
+      matrix[matrix.length - 1 - idx][layer] = matrix[matrix.length - 1 - layer][matrix.length - 1 - idx];
+
+      // Bottom becomes Right
+      matrix[matrix.length - 1 - layer][matrix.length - 1 - idx] = matrix[idx][matrix.length - 1 - layer];
+      
+      // Right becomes Temp
+      matrix[idx][matrix.length - 1 - layer] = temp;
+    }
+  }
+
+  return matrix;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - rotate in place, no additional dynamic space is used
+// O(n^2) time - for every layer, rotate each idx
