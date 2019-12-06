@@ -17,45 +17,18 @@ The order of your output does not matter.
 */
 
 var groupAnagrams = function(strs) {
-  // Have a results arr
-  // Have a set for anagrams seen
-  // Iterate through strs arr
-    // Have an anagrams arr
-    // If element is not in set
-      // Find all anagrams of element
-        // If an anagram is included in strs, push it to anagrams arr, add it to set, return 
-    // Push anagrams arr to results arr
-  // Return results arr
+  // Two strings are anagrams if and only if their sorted strings are equal
+  // Create a map where key = sorted str & val = strings from input
 
-  let results = [];
-  let set = new Set();
-
-  let anagrams = [];
-  let findAnagrams = (str, options, ans) => {
-    if (ans.length === str.length) {
-      if (strs.includes(ans)) {
-        for (let i = 0; i < strs.length; i++) {
-          if (strs[i] === ans && !set.has(strs[i])) anagrams.push(ans);
-        }
-        set.add(ans);
-      }
-      return;
-    }
-    for (let i = 0; i < options.length; i++) {
-      findAnagrams(str, options.slice(0, i).concat(options.slice(i + 1)), ans + options[i]);
-    }
-  };
-
-  for (let i = 0; i < strs.length; i++) {
-    anagrams = [];
-    if (!set.has(strs[i])) {
-      findAnagrams(strs[i], strs[i], '');
-    }
-    if (anagrams.length > 0) results.push(anagrams);
-  }
-
-  return results;
+  let map = new Map();
+  strs.forEach(str => {
+    let sortedStr = str.split('').sort().join('');
+    let group = map.get(sortedStr) || [];
+    group.push(str);
+    map.set(sortedStr, group)
+  });
+  return Array.from(map.values());
 };
 
-// O() space - 
-// O() time - 
+// O(n*k) space - where n is the length of the input array and k is the max length of a string in the input array
+// O(n*k(log(k))) time - for each string in input array, we sort it in k*log(k) time
