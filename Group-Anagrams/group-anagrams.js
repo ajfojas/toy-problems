@@ -21,10 +21,40 @@ var groupAnagrams = function(strs) {
   // Have a set for anagrams seen
   // Iterate through strs arr
     // Have an anagrams arr
-    // If element is not in set, add it to set, find all anagrams of element
-      // If an anagram is in strs, push it to anagrams arr
+    // If element is not in set
+      // Find all anagrams of element
+        // If an anagram is included in strs, push it to anagrams arr, add it to set, return 
     // Push anagrams arr to results arr
   // Return results arr
+
+  let results = [];
+  let set = new Set();
+
+  let anagrams = [];
+  let findAnagrams = (str, options, ans) => {
+    if (ans.length === str.length) {
+      if (strs.includes(ans)) {
+        for (let i = 0; i < strs.length; i++) {
+          if (strs[i] === ans && !set.has(strs[i])) anagrams.push(ans);
+        }
+        set.add(ans);
+      }
+      return;
+    }
+    for (let i = 0; i < options.length; i++) {
+      findAnagrams(str, options.slice(0, i).concat(options.slice(i + 1)), ans + options[i]);
+    }
+  };
+
+  for (let i = 0; i < strs.length; i++) {
+    anagrams = [];
+    if (!set.has(strs[i])) {
+      findAnagrams(strs[i], strs[i], '');
+    }
+    if (anagrams.length > 0) results.push(anagrams);
+  }
+
+  return results;
 };
 
 // O() space - 
