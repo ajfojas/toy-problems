@@ -21,8 +21,8 @@ n is a 32-bit signed integer, within the range [−231, 231 − 1]
 */
 
 var myPow = function(x, n) {
-  
+
 };
 
-// O(n*k) space - where n is the length of the input array and k is the max length of a string in the input array
-// O(n*k(log(k))) time - for each string in input array, we sort it in k*log(k) time
+// O() space - 
+// O() time - 
