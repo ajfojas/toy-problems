@@ -21,16 +21,32 @@ n is a 32-bit signed integer, within the range [−231, 231 − 1]
 */
 
 var myPow = function(x, n) {
-  // If x === 0, return 0
   // If n === 0, return 1
+  // If x === 0, return 0
   // Keep track of if n is (+) or (-)
   // Let n be a countdown
-  // While n-1 !== 0
-    // Multiply x * x
+  // While n-1 > 0
+    // Multiply x * base
     // n--
   // If n (+), return x
   // Else, return 1/x
+
+  if (n === 0) return 1;
+  if (x === 0) return 0;
+  if (x === 1) return 1;
+  if (x === -1) return n % 2 === 0 ? 1 : -1;
+
+  const base = x;
+  const positive = n >= 0 ? true : false;
+  n = Math.abs(n);
+
+  while (n - 1 > 0) {
+    x = x * base;
+    n--;
+  }
+
+  return positive ? x : 1 / x;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(n) time - while-loop iterates n times
