@@ -21,7 +21,15 @@ n is a 32-bit signed integer, within the range [−231, 231 − 1]
 */
 
 var myPow = function(x, n) {
-
+  // If x === 0, return 0
+  // If n === 0, return 1
+  // Keep track of if n is (+) or (-)
+  // Let n be a countdown
+  // While n-1 !== 0
+    // Multiply x * x
+    // n--
+  // If n (+), return x
+  // Else, return 1/x
 };
 
 // O() space - 
