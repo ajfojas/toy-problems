@@ -28,7 +28,16 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 */
 
 var maxProfit = function(prices) {
-
+  // Keep track of if you're buying or selling, start with buying
+  // Keep track of what you bought
+  // Keep track of bought idx
+  // Keep track of profits
+  // Iterate through input arr
+    // If buying
+      // If current element < next element, buy current element
+    // If selling
+      // If current element > next element && current element > bought, sell and add earnings to profits
+  // Return profits
 };
 
 // O() space - 
