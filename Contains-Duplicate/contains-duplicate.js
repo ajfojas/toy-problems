@@ -20,7 +20,11 @@ Output: true
 */
 
 var containsDuplicate = function(nums) {
-
+  // Have an obj to store elements seen
+  // Iterate through nums arr
+    // If current element is already in obj, return false
+    // Else, add current element in obj
+  // Return true
 };
 
 // O() space - 
