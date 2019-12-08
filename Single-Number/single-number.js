@@ -17,7 +17,11 @@ Output: 4
 */
 
 var singleNumber = function(nums) {
-
+  // Have a set to store elements seen
+  // Iterate though nums arr
+    // If element is in set, delete it
+    // Else, add it
+  // Return only element in set
 };
 
 // O() space - 
