@@ -27,9 +27,31 @@ var intersect = function(nums1, nums2) {
   // Iterate through smaller arr
     // Add each element to map/update count
   // Iterate though larger arr
-    // If element is in map && count !== 0, push element into results arr, count--
+    // If element is in map && count > 0, push element into results arr, count--
   // Return results arr
+
+  let results = [];
+  let map = new Map();
+  let smaller = nums1.length <= nums2.length ? nums1 : nums2;
+  let larger = smaller === nums1 ? nums2 : nums1;
+
+  for (let i = 0; i < smaller.length; i++) {
+    if (map.has(smaller[i])) {
+      map.set(smaller[i], map.get(smaller[i]) + 1);
+    } else {
+      map.set(smaller[i], 1);
+    }
+  }
+
+  for (let i = 0; i < larger.length; i++) {
+    if (map.has(larger[i]) && map.get(larger[i]) > 0) {
+      results.push(larger[i]);
+      map.set(larger[i], map.get(larger[i]) - 1);
+    }
+  }
+
+  return results;
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - at most, store each element in smaller arr in map and results arr
+// O(n + m) time - at most, iterate through both input arrays separately
