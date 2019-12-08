@@ -26,9 +26,25 @@ Could you do it in-place with O(1) extra space?
 var rotate = function(nums, k) {
   // Mod k by nums.length to get min # rotations
   // Reverse the input arr
-  // Reverse start to k
+  // Reverse start to k - 1
   // Reverse k to end
+
+  k = k % nums.length;
+  reverse(0, nums.length - 1, nums);
+  reverse(0, k - 1, nums);
+  reverse(k, nums.length - 1, nums);
+  return nums;
 };
 
-// O() space - 
-// O() time - 
+let reverse = (start, end, arr) => {
+  while (start <= end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+};
+
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through the entirety of input arr twice separately
