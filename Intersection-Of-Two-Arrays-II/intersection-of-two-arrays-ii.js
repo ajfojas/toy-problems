@@ -22,7 +22,13 @@ What if elements of nums2 are stored on disk, and the memory is limited such tha
 */
 
 var intersect = function(nums1, nums2) {
-
+  // Have a results arr
+  // Have a map that stores the elements as keys and the counts as values
+  // Iterate through smaller arr
+    // Add each element to map/update count
+  // Iterate though larger arr
+    // If element is in map && count !== 0, push element into results arr, count--
+  // Return results arr
 };
 
 // O() space - 
