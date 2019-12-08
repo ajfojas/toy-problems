@@ -39,10 +39,9 @@ var removeDuplicates = function(nums) {
   // Have one pointer start at the 1st element
   // Have another pointer start at the 2nd element
   // Iterate through nums length
-  // If 2nd pointer value !== 1st pointer value
-    // Increment 1st pointer to next element and change the value to 2nd pointer value
-  // Increment 2nd pointer to next element
-  // Slice nums array from 0 to i+1
+    // If 2nd pointer value !== 1st pointer value
+      // Increment 1st pointer to next element and change the value to 2nd pointer value
+    // Increment 2nd pointer to next element
   // Return new nums length
 
   let i = 0;
@@ -58,5 +57,5 @@ var removeDuplicates = function(nums) {
   return i+1;
 };
 
-// O(1) space
-// O(n) time
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through the input arr once
