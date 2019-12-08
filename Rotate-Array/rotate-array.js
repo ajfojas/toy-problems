@@ -24,7 +24,10 @@ Could you do it in-place with O(1) extra space?
 */
 
 var rotate = function(nums, k) {
-
+  // Mod k by nums.length to get min # rotations
+  // Reverse the input arr
+  // Reverse start to k
+  // Reverse k to end
 };
 
 // O() space - 
