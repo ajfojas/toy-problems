@@ -22,10 +22,22 @@ Output: true
 var containsDuplicate = function(nums) {
   // Have an obj to store elements seen
   // Iterate through nums arr
-    // If current element is already in obj, return false
+    // If current element is already in obj, return true
     // Else, add current element in obj
-  // Return true
+  // Return false
+
+  let store = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    if (store[nums[i]] !== undefined) {
+      return true;
+    } else {
+      store[nums[i]] = nums[i];
+    }
+  }
+
+  return false;
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - at most, store each element in store
+// O(n) time - at most, iterate through input arr once
