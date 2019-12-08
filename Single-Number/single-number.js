@@ -22,7 +22,19 @@ var singleNumber = function(nums) {
     // If element is in set, delete it
     // Else, add it
   // Return only element in set
+
+  let set = new Set();
+
+  for (let i = 0; i < nums.length; i++) {
+    if (set.has(nums[i])) {
+      set.delete(nums[i]);
+    } else {
+      set.add(nums[i]);
+    }
+  }
+
+  return Array.from(set)[0];
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - at most, add each element to set
+// O(n) time - at most, iterate through input arr once
