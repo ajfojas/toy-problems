@@ -30,7 +30,6 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 var maxProfit = function(prices) {
   // Keep track of if you're buying or selling, start with buying
   // Keep track of what you bought
-  // Keep track of bought idx
   // Keep track of profits
   // Iterate through input arr
     // If buying
@@ -38,7 +37,27 @@ var maxProfit = function(prices) {
     // If selling
       // If current element > next element && current element > bought, sell and add earnings to profits
   // Return profits
+
+  let buying = true;
+  let bought;
+  let profits = 0;
+  
+  for (let i = 0; i < prices.length; i++) {
+    if (buying) {
+      if (prices[i] < prices[i + 1]) {
+        bought = prices[i];
+        buying = false;
+      }
+    } else {
+      if ((prices[i] > prices[i + 1] || i === prices.length - 1) && prices[i] > bought) {
+        profits += (prices[i] - bought);
+        buying = true;
+      }
+    }
+  }
+
+  return profits;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through input arr once
