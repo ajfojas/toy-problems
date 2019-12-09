@@ -19,7 +19,26 @@ var moveZeroes = function(nums) {
     // While nonZeroPtr === 0, nonZeroPtr++
     // Swap elements
   // Return nums
+
+  let zero = 0;
+  let nonZero = 1;
+
+  while (zero < nums.length && nonZero < nums.length) {
+    while (nums[zero] !== 0 && zero < nonZero) zero++;
+    while (nums[nonZero] === 0 && nonZero < nums.length) nonZero++;
+    if (zero < nums.length && nonZero < nums.length) swap(zero, nonZero, nums);
+    zero++;
+    nonZero++;
+  }
+
+  return nums;
 };
 
-// O() space - 
-// O() time - 
+let swap = (idx1, idx2, arr) => {
+  let temp = arr[idx1];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
+};
+
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through input arr once in total
