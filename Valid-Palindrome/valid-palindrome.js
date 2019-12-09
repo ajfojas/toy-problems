@@ -15,7 +15,13 @@ Output: false
 */
 
 var isPalindrome = function(s) {
-  // 
+  // Handle empty string being valid palindrome
+  // Remove nonalphanumeric characters from s and split it
+  // Have L pointer and R pointer
+  // While L < R
+    // Compare L and R
+    // Return false if not the same
+  // Return true if while-loop completes
 };
 
 // O() space - 
