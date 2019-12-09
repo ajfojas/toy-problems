@@ -30,7 +30,8 @@ function ListNode(val) {
 }
 
 var deleteNode = function(node) {
-  // 
+  // Change input node's val to next node's val
+  // Change current node's next to next node's next
 };
 
 // O() space - 
