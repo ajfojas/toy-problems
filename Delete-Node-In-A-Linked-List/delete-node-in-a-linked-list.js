@@ -32,7 +32,10 @@ function ListNode(val) {
 var deleteNode = function(node) {
   // Change input node's val to next node's val
   // Change current node's next to next node's next
+
+  node.val = node.next.val;
+  node.next = node.next.next;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(1) time - only 2 operations will ever be done
