@@ -48,7 +48,13 @@ Thefore INT_MIN (−231) is returned.
 */
 
 var myAtoi = function(str) {
-  // 
+  // Have a obj with keys of stringified nums and values of nums
+  // Split str into indiv chars, removing whitespace
+  // Have a results integer, starting at 0
+  // Iterate through str, starting at 1st char
+    // If obj[str[i]], multiply results by 10, add obj[str[i]]
+    // Else, break
+  // Return results within max & min int range
 };
 
 // O() space - 
