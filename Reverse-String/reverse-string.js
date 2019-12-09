@@ -23,7 +23,24 @@ var reverseString = function(s) {
     // L++
     // R--
   // Return s
+
+  let L = 0;
+  let R = s.length - 1;
+
+  while (L < R) {
+    swap(L, R, s);
+    L++;
+    R--;
+  }
+
+  return s;
 };
 
-// O() space - 
-// O() time - 
+let swap = (idx1, idx2, arr) => {
+  let temp = arr[idx1];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
+};
+
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, touch each element once
