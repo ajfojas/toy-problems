@@ -22,7 +22,23 @@ var isAnagram = function(s, t) {
   // Store char counts of s & t in objs
   // Compare if stringified objs look the same
   // Return true or false
+
+  let sCharCount = {};
+  let tCharCount = {};
+
+  for (let i = 0; i < s.length; i++) {
+    sCharCount[s[i]] = sCharCount[s[i]] ? sCharCount[s[i]] + 1 : 1;
+  }
+
+  for (let i = 0; i < t.length; i++) {
+    tCharCount[t[i]] = tCharCount[t[i]] ? tCharCount[t[i]] + 1 : 1;
+  }
+
+  sCharCount = Object.entries(sCharCount).sort();
+  tCharCount = Object.entries(tCharCount).sort();
+
+  return JSON.stringify(sCharCount) === JSON.stringify(tCharCount);
 };
 
-// O() space - 
-// O() time - 
+// O(n + m) space - at most, store each char of both inputs in objects
+// O(n + m) time - at most, iterate through both inputs 3x separately
