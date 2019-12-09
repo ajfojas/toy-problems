@@ -22,20 +22,40 @@ var plusOne = function(digits) {
   // Make a new results arr of size digits + 1
   // Keep track of digitsIdx, starting from the end
   // Keep track of resultsIdx, starting from end
-  // Keep track of carry over, initially set to 0
+  // Keep track of carry over
   // Add 1 to last element of digits arr
-  // Set last element of results arr to digits[last element] % 10
-  // If digits[element] > 9
-    // Carry over = 1
-    // While there's a carry over && digitsIdx !== 0
-      // Decrement digitsIdx--
-      // Decrement resultsIdx--
-      // Add carry over to digits[element]
-      // results[element] = digits[element] % 10
-      // If digits[element] < 10, carry over = 0
-    // If digitsIdx === 0 && carry over, resultsIdx--, results[element] = 1
+  // Set last element of results arr to digits[digitsIdx] % 10
+  // While digitsIdx !== 0
+    // Determine if there's a carry over
+    // Decrement digitsIdx--
+    // Decrement resultsIdx--
+    // Add carry over amount to digits[digitsIdx]
+    // Set current element of results arr to digits[digitsIdx] % 10
+  // Decrement resultsIdx--
+  // Set first element of results arr to current carry over amount
   // Return results arr
+
+  let results = Array(digits.length + 1);
+  let digitsIdx = digits.length - 1;
+  let resultsIdx = results.length - 1;
+  let carry;
+
+  digits[digitsIdx]++;
+  results[resultsIdx] = digits[digitsIdx] % 10;
+
+  while (digitsIdx !== 0) {
+    carry = digits[digitsIdx] > 9 ? 1 : 0;
+    digitsIdx--;
+    resultsIdx--;
+    digits[digitsIdx] += carry;
+    results[resultsIdx] = digits[digitsIdx] % 10;
+  }
+
+  resultsIdx--;
+  results[resultsIdx] = digits[digitsIdx] > 9 ? 1 : 0;
+
+  return results[0] === 0 ? results.slice(1) : results;
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - create a new results array with size of input array + 1
+// O(n) time - at most, iterate through input array once
