@@ -19,26 +19,33 @@ What if the inputs contain unicode characters? How would you adapt your solution
 
 var isAnagram = function(s, t) {
   // Anagrams have the same amount of letters
-  // Store char counts of s & t in objs
-  // Compare if stringified objs look the same
-  // Return true or false
+  // Iterate through s
+    // Store char counts of s in obj
+  // Iterate through t
+    // If char exists in s obj, decrement counter
+      // If counter < 0, return false
+    // Else, return false
+  // Return true
+
+  if (s.length !== t.length) return false;
 
   let sCharCount = {};
-  let tCharCount = {};
 
   for (let i = 0; i < s.length; i++) {
     sCharCount[s[i]] = sCharCount[s[i]] ? sCharCount[s[i]] + 1 : 1;
   }
 
   for (let i = 0; i < t.length; i++) {
-    tCharCount[t[i]] = tCharCount[t[i]] ? tCharCount[t[i]] + 1 : 1;
+    if (sCharCount[t[i]]) {
+      sCharCount[t[i]]--;
+      if (sCharCount[t[i]] < 0) return false;
+    } else {
+      return false;
+    }
   }
 
-  sCharCount = Object.entries(sCharCount).sort();
-  tCharCount = Object.entries(tCharCount).sort();
-
-  return JSON.stringify(sCharCount) === JSON.stringify(tCharCount);
+  return true;
 };
 
-// O(n + m) space - at most, store each char of both inputs in objects
-// O(n + m) time - at most, iterate through both inputs 3x separately
+// O(n) space - at most, store each char of first input in object
+// O(n + m) time - at most, iterate through both inputs once separately
