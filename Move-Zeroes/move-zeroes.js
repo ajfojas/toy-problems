@@ -12,7 +12,13 @@ Minimize the total number of operations.
 */
 
 var moveZeroes = function(nums) {
-    
+  // Have one pointer looking for 0s
+  // Have one pointer looking for non-0s
+  // While zeroPtr !== undefined && nonZeroPtr !== undefined
+    // While zeroPtr !== 0, zeroPtr++
+    // While nonZeroPtr === 0, nonZeroPtr++
+    // Swap elements
+  // Return nums
 };
 
 // O() space - 
