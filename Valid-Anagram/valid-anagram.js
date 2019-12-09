@@ -18,7 +18,10 @@ What if the inputs contain unicode characters? How would you adapt your solution
 */
 
 var isAnagram = function(s, t) {
-  // 
+  // Anagrams have the same amount of letters
+  // Store char counts of s & t in objs
+  // Compare if stringified objs look the same
+  // Return true or false
 };
 
 // O() space - 
