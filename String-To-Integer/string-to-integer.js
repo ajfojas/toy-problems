@@ -49,13 +49,44 @@ Thefore INT_MIN (−231) is returned.
 
 var myAtoi = function(str) {
   // Have a obj with keys of stringified nums and values of nums
-  // Split str into indiv chars, removing whitespace
+  // Split str into indiv chars, trimming whitespace
   // Have a results integer, starting at 0
+  // Keep track of if str is (+) or (-)
   // Iterate through str, starting at 1st char
     // If obj[str[i]], multiply results by 10, add obj[str[i]]
     // Else, break
   // Return results within max & min int range
+
+  let nums = {
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9
+  };
+
+  str = str.trim().split('')
+  let results = 0;
+  let neg = str[0] === '-' ? true : false;
+  if (str[0] === '+') str = str.slice(1);
+
+  for (let i = neg ? 1 : 0; i < str.length; i++) {
+    if (nums[str[i]] !== undefined) {
+      results = (results * 10) + nums[str[i]];
+    } else {
+      break;
+    }
+  }
+
+  if (neg) results *= -1;
+  if (Math.abs(results) > Math.pow(2, 31) - 1) return neg ? -1 * Math.pow(2, 31) : Math.pow(2, 31) - 1;
+  return results;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through input twice separately
