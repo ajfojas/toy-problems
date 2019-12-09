@@ -20,7 +20,18 @@ For the purpose of this problem, we will return 0 when needle is an empty string
 */
 
 var strStr = function(haystack, needle) {
-  // 
+  // Keep track of target index
+  // Iterate through haystack
+    // Set needleIdx to 0
+    // If haystack[element] === needle[needleIdx]
+      // Set target index to current iteration
+      // Set haystackIdx to current iteration
+      // While haystackIdx < haystack.length && needleIdx < needle.length
+        // Increment haystackIdx++
+        // Increment needleIdx++
+        // If haystack[haystackIdx !== needle[needleIdx]], break
+        // If needleIdx === needle.length - 1, return target index
+  // Return -1
 };
 
 // O() space - 
