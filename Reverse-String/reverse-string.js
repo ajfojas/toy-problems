@@ -17,7 +17,12 @@ Output: ["h","a","n","n","a","H"]
 */
 
 var reverseString = function(s) {
-  // 
+  // Have a left pointer and a right pointer
+  // While L < R
+    // Swap L and R elements
+    // L++
+    // R--
+  // Return s
 };
 
 // O() space - 
