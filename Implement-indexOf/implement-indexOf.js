@@ -29,10 +29,32 @@ var strStr = function(haystack, needle) {
       // While haystackIdx < haystack.length && needleIdx < needle.length
         // Increment haystackIdx++
         // Increment needleIdx++
-        // If haystack[haystackIdx !== needle[needleIdx]], break
+        // If haystack[haystackIdx] !== needle[needleIdx], break
         // If needleIdx === needle.length - 1, return target index
   // Return -1
+
+  if (needle.length === 0) return 0;
+
+  let targetIdx;
+  
+  for (let i = 0; i < haystack.length; i++) {
+    let needleIdx = 0;
+
+    if (haystack[i] === needle[needleIdx]) {
+      targetIdx = i;
+      haystackIdx = i;
+
+      while (haystackIdx < haystack.length && needleIdx < needle.length) {
+        if (haystack[haystackIdx] !== needle[needleIdx]) break;
+        if (needleIdx === needle.length - 1) return targetIdx;
+        haystackIdx++;
+        needleIdx++;
+      }
+    }
+  }
+
+  return -1;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through haystack once
