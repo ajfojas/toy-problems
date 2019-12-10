@@ -20,7 +20,11 @@ function ListNode(val) {
 }
 
 var isPalindrome = function(head) {
-  // 
+  // Find the end of the 1st half
+  // Reverse the 2nd half
+  // Determine whether or not there is a palindrome
+  // Restore the list
+  // Return the result
 };
 
 // O() space - 
