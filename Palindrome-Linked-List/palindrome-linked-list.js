@@ -23,5 +23,5 @@ var isPalindrome = function(head) {
   // 
 };
 
-// O(n) space - call stack will be the same size as LL
-// O(n) time - at most, iterate through the entire LL
+// O() space - 
+// O() time - 
