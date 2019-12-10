@@ -41,5 +41,5 @@ var reverseList = function(head) {
   return head;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through the entire LL
