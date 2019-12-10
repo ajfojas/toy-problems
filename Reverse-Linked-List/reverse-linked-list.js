@@ -35,5 +35,20 @@ var reverseList = function(head) {
   return prev;
 };
 
-// O(1) space - no additional dynamic space is used
+var reverseList = function(head) {
+// Recursive:
+  // Return me a reversed list
+  // I'll add myself
+  // I'll return the head you gave me
+  
+  if (head === null || head.next === null) return head;
+
+  let prev = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return prev;
+};
+
+// Iterative O(1) space - no additional dynamic space is used
+// Recursive O(n) space - call stack will be the same size as LL
 // O(n) time - at most, iterate through the entire LL
