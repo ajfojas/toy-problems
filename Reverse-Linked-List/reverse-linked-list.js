@@ -26,6 +26,19 @@ var reverseList = function(head) {
     // Set head to B ptr
     // Set B ptr to B.next
   // Return head
+  
+  if (head === null) return null;
+
+  let A = null;
+  let B = head.next;
+  head.next = A;
+  while (B !== null) {
+    A = head;
+    head = B;
+    B = B.next;
+    head.next = A;
+  }
+  return head;
 };
 
 // O() space - 
