@@ -17,28 +17,22 @@ function ListNode(val) {
 
 var reverseList = function(head) {
 // Iterative:
-  // Set A ptr to null
-  // Head is already set to 1st node
-  // Set B ptr to head.next
-  // While B !== null
-    // Set head.next to A ptr
-    // Set A ptr to head
-    // Set head to B ptr
-    // Set B ptr to B.next
-  // Return head
+  // Set prev ptr to null
+  // While head !== null
+    // Set next ptr to head.next
+    // Set head.next to prev ptr
+    // Set prev ptr to head
+    // Set head to next ptr
+  // Return prev
   
-  if (head === null) return null;
-
-  let A = null;
-  let B = head.next;
-  head.next = A;
-  while (B !== null) {
-    A = head;
-    head = B;
-    B = B.next;
-    head.next = A;
+  let prev = null;
+  while (head !== null) {
+    let next = head.next;
+    head.next = prev;
+    prev = head;
+    head = next;
   }
-  return head;
+  return prev;
 };
 
 // O(1) space - no additional dynamic space is used
