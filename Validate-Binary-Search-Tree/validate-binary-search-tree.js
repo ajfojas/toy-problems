@@ -36,7 +36,11 @@ function TreeNode(val) {
 }
 
 var isValidBST = function(root) {
-  // 
+  // If root === null, return true
+  // If left === null || left < root, recurse on left
+  // Else, return false
+  // If right === null || right > root, recurse on right
+  // Else, return false
 };
 
 // O() space - 
