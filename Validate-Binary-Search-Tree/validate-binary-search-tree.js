@@ -36,11 +36,14 @@ function TreeNode(val) {
 }
 
 var isValidBST = function(root) {
+  // Have a recursive function that intakes a node, lower limit, and upper limit
+  // Kick off recursion on root input, null, and null
   // If root === null, return true
-  // If left === null || left < root, recurse on left
-  // Else, return false
-  // If right === null || right > root, recurse on right
-  // Else, return false
+  // If left !== null || left >= root, return false
+  // If right !== null || right <= root, return false
+  // If (!recurse(left, lower, node.val)) return false
+  // If (!recurse(right, node.val, uper)) return false
+  // Return true
 };
 
 // O() space - 
