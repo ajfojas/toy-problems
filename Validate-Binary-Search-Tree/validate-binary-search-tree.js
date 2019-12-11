@@ -37,14 +37,23 @@ function TreeNode(val) {
 
 var isValidBST = function(root) {
   // Have a recursive function that intakes a node, lower limit, and upper limit
-  // Kick off recursion on root input, null, and null
-  // If root === null, return true
-  // If left !== null || left >= root, return false
-  // If right !== null || right <= root, return false
-  // If (!recurse(left, lower, node.val)) return false
-  // If (!recurse(right, node.val, uper)) return false
-  // Return true
+    // If root === null, return true
+    // If left !== null || left >= root, return false
+    // If right !== null || right <= root, return false
+    // If (!recurse(left, lower, node.val)) return false
+    // If (!recurse(right, node.val, uper)) return false
+    // Return true
+  // Return recursion on root input, null, and null
+
+  let recurse = (node, lower, upper) => {
+    if (node === null) return true;
+    if (lower !== null && lower >= node.val) return false;
+    if (upper !== null && upper <= node.val) return false;
+    return recurse(node.left, lower, node.val) && recurse(node.right, node.val, upper);
+  };
+
+  return recurse(root, null, null);
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - n/2 ~= n recursive calls
+// O(n) time - pure tree traversal is n operations
