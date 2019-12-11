@@ -30,7 +30,10 @@ function TreeNode(val) {
 }
 
 var isSymmetric = function(root) {
-  // 
+  // Push all nodes breadth first into an arr
+  // For each level, put pointers on the start and end and compare each value while going towards the middle
+  // If values are ever not equal, return false
+  // Else, return true
 };
 
 // O() space - 
