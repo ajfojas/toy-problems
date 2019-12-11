@@ -33,7 +33,15 @@ var isSymmetric = function(root) {
   // Mirror image
   // Roots should have same value
   // 1st root's left should equal 2nd root's right and vice versa
+
+  return mirror(root, root);
 };
 
-// O() space - 
-// O() time - 
+let mirror = (tree1, tree2) => {
+  if (tree1 === null && tree2 === null) return true;
+  if (tree1 === null || tree2 === null) return false;
+  return (tree1.val === tree2.val) && mirror(tree1.left, tree2.right) && mirror(tree1.right, tree2.left);
+};
+
+// O(n) space - n/2 call stacks ~= n call stacks
+// O(n) time - pure tree traversal is O(n)
