@@ -59,7 +59,23 @@ var isSymmetric = function(root) {
     // Add tree1.right to queue
     // Add tree2.left to queue
   // Return true
+
+  let queue = [];
+  queue.push(root);
+  queue.push(root);
+  while (queue.length > 0) {
+    let tree1 = queue.shift();
+    let tree2 = queue.shift();
+    if (tree1 === null && tree2 === null) continue;
+    if (tree1 === null || tree2 === null || tree1.val !== tree2.val) return false;
+    queue.push(tree1.left);
+    queue.push(tree2.right);
+    queue.push(tree1.right);
+    queue.push(tree2.left);
+  }
+  return true;
 };
 
-// O(n) space - n/2 call stacks ~= n call stacks
+// Recursive O(n) space - n/2 call stacks ~= n call stacks
+// Iterative O(n) space - at most, queue can have n nodes in it
 // O(n) time - pure tree traversal is O(n)
