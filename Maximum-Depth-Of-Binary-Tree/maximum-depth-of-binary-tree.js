@@ -28,7 +28,19 @@ var maxDepth = function(root) {
   // Have a max depth tracker
   // Recurse through the entire tree, incrementing the counter on each call
   // Return counter
+
+  let max = 0;
+
+  let dive = (node, depth) => {
+    if (node === null) return;
+    if (depth > max) max = depth;
+    dive(node.left, depth + 1);
+    dive(node.right, depth + 1);
+  }
+  if (root) dive(root, max + 1);
+
+  return max;
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - n/2 == n recursive calls
+// O(n) time - pure tree traversal is n operations
