@@ -23,7 +23,17 @@ function TreeNode(val) {
 }
 
 var levelOrder = function(root) {
-  // 
+  // Keep track of results
+  // Build a queue with all nodes
+  // Keep track of levels
+  // Keep track of countdown
+  // While queue is not empty
+    // Create a level arr
+    // Countdown = Math.pow(2, level)
+    // While countdown > 0
+      // countdown--
+      // If queue[0] !== null, level.push(queue.shift())
+  // Return results
 };
 
 // O() space - 
