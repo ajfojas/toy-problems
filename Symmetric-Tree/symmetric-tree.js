@@ -34,6 +34,41 @@ var isSymmetric = function(root) {
   // For each level, put pointers on the start and end and compare each value while going towards the middle
   // If values are ever not equal, return false
   // Else, return true
+
+  let bfNodes = bfTraverse(root);
+
+  let level = 0
+  let L = 0;
+  let Lmove = 0;
+  while (Lmove < bfNodes.length) {
+    let R = Lmove + Math.pow(2, level) - 1;
+    let Rmove = Lmove + Math.pow(2, level) - 1;
+    if ((R - L + 1) % 2 !== 0 && L !== 0) return false;
+    while (Lmove < Rmove) {
+      if (bfNodes[Lmove] === null && bfNodes[Rmove] !== null || bfNodes[Lmove] !== null && bfNodes[Rmove] === null || bfNodes[Lmove] !== null && bfNodes[Rmove] !== null && bfNodes[Lmove].val !== bfNodes[Rmove].val) return false;
+      Lmove++;
+      Rmove--;
+    }
+    level++;
+    L = R + 1;
+    Lmove = R + 1;
+  }
+  return true;
+};
+
+let bfTraverse = root => {
+  let queue = [root];
+  let bfNodes = [root];
+  while (queue.length > 0) {
+    let node = queue.shift();
+    if (node) {
+      queue.push(node.left);
+      bfNodes.push(node.left);
+      queue.push(node.right);
+      bfNodes.push(node.right);
+    }
+  }
+  return bfNodes;
 };
 
 // O() space - 
