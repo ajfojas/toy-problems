@@ -23,7 +23,11 @@ function TreeNode(val) {
 }
 
 var sortedArrayToBST = function(nums) {
-  // 
+  // Convert to upside down V shape
+  // Floor'd mid element is the root node
+  // Elements to the left of mid become left childs
+  // Elements to the right of mid become right childs
+  // Return root
 };
 
 // O() space - 
