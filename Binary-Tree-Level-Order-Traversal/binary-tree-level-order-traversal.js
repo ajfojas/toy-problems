@@ -30,7 +30,17 @@ var levelOrder = function(root) {
     // Recurse on left and right child
   // Kick off recursion with root and 0
   // Return results
+
+  let results = [];
+  let recurse = (node, level) => {
+    if (node === null) return;
+    results[level] = results[level] !== undefined ? results[level].concat(node.val) : [node.val];
+    recurse(node.left, level + 1);
+    recurse(node.right, level + 1);
+  };
+  recurse(root, 0);
+  return results;
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - n/2 call stacks ~= n call stacks
+// O(n) time - pure tree traversal is O(n)
