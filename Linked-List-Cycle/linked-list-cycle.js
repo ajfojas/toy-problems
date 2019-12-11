@@ -32,7 +32,12 @@ function ListNode(val) {
 }
 
 var hasCycle = function(head) {
-  // 
+  // Fast and slow pointer
+  // While fast pointer !== null || fast.next !== null
+    // If fast === slow, return true
+    // slow = slow.next
+    // fast = fast.next.next
+  // Return false
 };
 
 // O() space - 
