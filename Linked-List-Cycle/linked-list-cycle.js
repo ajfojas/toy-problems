@@ -38,7 +38,18 @@ var hasCycle = function(head) {
     // slow = slow.next
     // fast = fast.next.next
   // Return false
+
+  if (head === null) return false;
+
+  let slow = head;
+  let fast = head.next;
+  while (fast !== null && fast.next !== null) {
+    if (fast === slow) return true;
+    slow = slow.next;
+    fast = fast.next.next
+  }
+  return false;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(n) time - on average, iterate through the LL 1-2x
