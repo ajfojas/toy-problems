@@ -25,7 +25,9 @@ function TreeNode(val) {
 }
 
 var maxDepth = function(root) {
-  // 
+  // Have a max depth tracker
+  // Recurse through the entire tree, incrementing the counter on each call
+  // Return counter
 };
 
 // O() space - 
