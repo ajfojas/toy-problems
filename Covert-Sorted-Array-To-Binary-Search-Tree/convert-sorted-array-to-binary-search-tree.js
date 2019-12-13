@@ -28,7 +28,19 @@ var sortedArrayToBST = function(nums) {
   // Root is mid of input arr
   // Left is mid of arr.slice(start, mid - 1)
   // Right is mid of arr.slice(mid + 1, end)
+
+  if (nums.length == 0) return null;
+
+  let start = 0;
+  let end = nums.length - 1;
+  let mid = Math.floor((start + end) / 2);
+
+  let node = new TreeNode(nums[mid]);
+  node.left = sortedArrayToBST(nums.slice(0, mid));
+  node.right = sortedArrayToBST(nums.slice(mid + 1));
+
+  return node;
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - n to keep output, log(n) for recursion stack
+// O(n) time - visit each node exactly once
