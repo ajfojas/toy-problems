@@ -23,8 +23,9 @@ var merge = function(nums1, m, nums2, n) {
     // Pointer--
   // Return nums1
 
-  if (nums2.length <= 1) {
-    return nums2;
+  if (nums1.length === 1 && nums2.length === 1) {
+    nums1[0] = nums2[0];
+    return nums1;
   }
 
   let traverse = nums1.length - 1;
@@ -32,11 +33,12 @@ var merge = function(nums1, m, nums2, n) {
   n = n - 1;
 
   while (n >= 0) {
-    if (nums2[n] >= nums1[m]) {
+    if (nums2[n] >= nums1[m] || nums1[m] === undefined) {
       nums1[traverse] = nums2[n];
       n--;
     } else {
-      nums1[traverse] = nums1[m]
+      nums1[traverse] = nums1[m];
+      nums1[m] = 0;
       m--;
     }
     traverse--;
