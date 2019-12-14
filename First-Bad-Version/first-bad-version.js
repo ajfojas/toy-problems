@@ -22,7 +22,13 @@ var solution = function(isBadVersion) {
    * @return {integer} The first bad version
    */
   return function(n) {
-    
+    // Have left = 1 and right = n
+    // While left <= right
+      // Have mid pointer
+      // If !isBadVersion(mid), left = mid + 1
+      // Else if isBadVersion(mid) && isBadVersion(mid - 1), right = left - 1
+      // Else, return mid
+    // Return null
   };
 };
 
