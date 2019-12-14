@@ -26,11 +26,27 @@ var solution = function(isBadVersion) {
     // While left <= right
       // Have mid pointer
       // If !isBadVersion(mid), left = mid + 1
-      // Else if isBadVersion(mid) && isBadVersion(mid - 1), right = left - 1
-      // Else, return mid
+      // Else if isBadVersion(mid) && isBadVersion(mid - 1), right = mid - 1
+      // Else if isBadVersion(mid), return mid
     // Return null
+
+    let l = 1;
+    let r = n;
+
+    while (l <= r) {
+      let mid = Math.floor((l + r) / 2);
+      if (!isBadVersion(mid)) {
+        l = mid + 1;
+      } else if (isBadVersion(mid) && isBadVersion(mid - 1)) {
+        r = mid - 1;
+      } else if (isBadVersion(mid)) {
+        return mid;
+      }
+    }
+
+    return null;
   };
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(log(n)) time - constantly cutting length in half
