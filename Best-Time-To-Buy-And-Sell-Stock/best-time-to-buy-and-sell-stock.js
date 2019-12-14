@@ -20,11 +20,11 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 */
 
 var maxProfit = function(prices) {
-  // Keep running track of min and max price and index of each
+  // Keep running track of min price and max profit
   // Iterate through prices arr
-    // Update min/max price and indices
-  // If index of max < index of min, return profit
-  // Else, return 0;
+    // If current price < min price, update min price
+    // Else if current price - min price > max profit, update max profit
+  // Return max profit
 };
 
 // O() space - 
