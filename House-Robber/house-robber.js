@@ -19,7 +19,9 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 */
 
 var rob = function(nums) {
-  // 
+  // Keep 2 running totals, one for every even element and one for every odd
+  // Iterate through the nums arr, updating the totals
+  // Return max robbing
 };
 
 // O() space - 
