@@ -25,7 +25,20 @@ var maxProfit = function(prices) {
     // If current price < min price, update min price
     // Else if current price - min price > max profit, update max profit
   // Return max profit
+
+  let minPrice = Number.MAX_SAFE_INTEGER;
+  let maxProfit = 0;
+
+  for (let currentPrice = 0; currentPrice < prices.length; currentPrice++) {
+    if (prices[currentPrice] < minPrice) {
+      minPrice = prices[currentPrice];
+    } else if (prices[currentPrice] - minPrice > maxProfit) {
+      maxProfit = prices[currentPrice] - minPrice;
+    }
+  }
+
+  return maxProfit;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through the input arr once
