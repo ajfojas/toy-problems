@@ -36,5 +36,5 @@ var rob = function(nums) {
   return currMax;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through input arr once
