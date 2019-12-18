@@ -23,6 +23,17 @@ var rob = function(nums) {
   // Iterate through nums arr
     // Determine if max is prevMax + i or currMax
   // Return currMax
+
+  let prevMax = 0;
+  let currMax = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    let temp = currMax;
+    currMax = Math.max(prevMax + nums[i], currMax);
+    prevMax = temp;
+  }
+
+  return currMax;
 };
 
 // O() space - 
