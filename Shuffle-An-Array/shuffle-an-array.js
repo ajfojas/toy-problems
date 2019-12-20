@@ -17,7 +17,7 @@ solution.shuffle();
  * @param {number[]} nums
  */
 var Solution = function(nums) {
-    
+  this.original = nums;
 };
 
 /**
@@ -25,7 +25,7 @@ var Solution = function(nums) {
  * @return {number[]}
  */
 Solution.prototype.reset = function() {
-    
+  return this.original;
 };
 
 /**
@@ -33,7 +33,16 @@ Solution.prototype.reset = function() {
  * @return {number[]}
  */
 Solution.prototype.shuffle = function() {
-    
+  let shuffle = this.original.slice(0);
+
+  for (let card = 0; card < shuffle.length; card++) {
+    let randomCard = Math.floor(Math.random() * (shuffle.length - card)) + card;
+    let temp = shuffle[card];
+    shuffle[card] = shuffle[randomCard];
+    shuffle[randomCard] = temp;
+  }
+
+  return shuffle;
 };
 
 /** 
@@ -43,5 +52,5 @@ Solution.prototype.shuffle = function() {
  * var param_2 = obj.shuffle()
  */
 
-// O() space - 
-// O() time - 
+// O(n) space - shuffle() creates a copy of input array
+// O(n) time - at most, shuffle() iterates through the input array once
