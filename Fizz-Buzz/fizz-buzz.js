@@ -28,7 +28,12 @@ Return:
 */
 
 var fizzBuzz = function(n) {
-  // 
+  // Create output array
+  // Iterate from 1 to n
+    // For multiples of 3 && 5, push 'FizzBuzz'
+    // For multiples of 3, push 'Fizz'
+    // For multiples of 5, push 'Buzz'
+  // Return output
 };
 
 // O() space - 
