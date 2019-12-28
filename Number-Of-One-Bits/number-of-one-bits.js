@@ -25,11 +25,9 @@ If this function is called many times, how would you optimize it?
 */
 
 var hammingWeight = function(n) {
+  // Convert n to string
   // Keep track of # ones
-  // While n > 0
-    // Mod n by 10 to get the last digit
-    // Add value to counter
-    // Divide n by 10
+  // Iterate through string n, count # ones
   // Return count
 };
 
