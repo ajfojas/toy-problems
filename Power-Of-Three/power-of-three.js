@@ -25,7 +25,12 @@ var isPowerOfThree = function(n) {
   // While n % 3 === 0
     // Divide n by 3
   // Return n === 1
+
+  if (n < 1) return false;
+
+  while (n % 3 === 0) n /= 3;
+  return n === 1;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(log(n)) time - constantly divide n by 3
