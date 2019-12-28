@@ -29,7 +29,14 @@ var hammingWeight = function(n) {
   // Keep track of # ones
   // Iterate through string n, count # ones
   // Return count
+
+  let stringN = n.toString(2);
+  let numberOfOnes = 0;
+  for (let digit = 0; digit < stringN.length; digit++) {
+    numberOfOnes += Number(stringN[digit]);
+  }
+  return numberOfOnes;
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - storing string conversion takes n space
+// O(n) time - at most, iterate through stringN once
