@@ -22,7 +22,9 @@ Could you do it without using any loop / recursion?
 */
 
 var isPowerOfThree = function(n) {
-  // 
+  // While n % 3 === 0
+    // Divide n by 3
+  // Return n === 1
 };
 
 // O() space - 
