@@ -21,7 +21,13 @@ The above arrows point to positions where the corresponding bits are different.
 */
 
 var hammingDistance = function(x, y) {
-  // 
+  // Convert both inputs to binary as strings
+  // Keep track of # differences
+  // Iterate through the longer string backwards
+    // If either index is null, break
+    // If difference between inputs at current index, increment counter
+  // Add amount of leftover digits of longer string to counter
+  // Return counter
 };
 
 // O() space - 
