@@ -43,7 +43,12 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 */
 
 var romanToInt = function(s) {
-  // 
+  // Set up object with symbols as keys and values as values
+  // Keep track of sum
+  // Iterate through string s
+    // If obj[s[i]] < obj[s[i + 1]], add (obj[s[i + 1]] - obj[s[i]]) to total, increment i++
+    // Else add obj[s[i]] to total
+  // Return total
 };
 
 // O() space - 
