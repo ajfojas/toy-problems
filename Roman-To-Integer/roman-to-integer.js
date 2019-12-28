@@ -49,7 +49,28 @@ var romanToInt = function(s) {
     // If obj[s[i]] < obj[s[i + 1]], add (obj[s[i + 1]] - obj[s[i]]) to total, increment i++
     // Else add obj[s[i]] to total
   // Return total
+
+  let romanValues = {
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000,
+  };
+
+  let sum = 0;
+  for (let char = 0; char < s.length; char++) {
+    if (romanValues[s[char]] < romanValues[s[char + 1]]) {
+      sum += romanValues[s[char + 1]] - romanValues[s[char]];
+      char++;
+    } else {
+      sum += romanValues[s[char]];
+    }
+  }
+  return sum;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - no additional dynamic space is used
+// O(n) time - at most, iterate through input string once
