@@ -20,7 +20,10 @@ If this function is called many times, how would you optimize it?
 */
 
 var reverseBits = function(n) {
-  // 
+  // Convert input to binary string
+  // Have left and right pointer at ends of string
+  // Continuously swap left and right values while moving inwards
+  // Return numerical result
 };
 
 // O() space - 
