@@ -24,7 +24,13 @@ var reverseBits = function(n) {
   // Reverse it
   // Add any needed remaining zeroes
   // Return numerical result
+
+  let stringN = n.toString(2);
+  let reverseStringN = stringN.split('').reverse().join('');
+  let zeroes = Array(32 - reverseStringN.length).fill(0).join('');
+  let result = parseInt(reverseStringN + zeroes, 2);
+  return result;
 };
 
-// O() space - 
-// O() time - 
+// O(1) space - will always use the same amount of space bc 32 bit integers are the max size
+// O(n) time - JS methods will iterate through the entire string multiple but separate times
