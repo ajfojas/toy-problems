@@ -18,7 +18,16 @@ var missingNumber = function(nums) {
   // 1. O(n * log(n)) time and O(1) space by sorting the array first
   // 2. O(n)          time and O(n) space by using a set and deleting entries with values I encounter
   // I think optimizing for time would be better from a UX point of view
+
+  let unseen = new Set();
+  for (let number = 0; number <= nums.length; number++) {
+    unseen.add(number);
+  }
+  for (let index = 0; index < nums.length; index++) {
+    unseen.delete(nums[index]);
+  }
+  return unseen.values().next().value;
 };
 
-// O() space - 
-// O() time - 
+// O(n) space - at most, add each integer up to nums.length to a set
+// O(n) time - at most, iterate through nums.length twice separately
