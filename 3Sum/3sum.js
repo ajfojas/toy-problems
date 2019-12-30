@@ -18,12 +18,17 @@ A solution set is:
 
 var threeSum = function(nums) {
   // Have a results array
-  // Iterate through nums array
-    // Do the 2Sum problem with nums.slice(i) and target is nums[i] * -1
-    // Create an object to store complements
-    // Iterate through nums.slice(i)
-      // If complement already exists in object, push([target * -1, complement[nums.slice(i)[j]], j]) into results array
-      // Else, complement[target - nums.slice(i)[j]] = nums.slice(i)[j]
+  // Sort nums in ascending order
+  // Iterate through nums array, skipping any duplicates, current index is the 1st num
+    // 2nd num is index immediately after 1st num
+    // 3rd num is last index
+    // While 2nd index < 3rd index
+      // If sum of 3 nums === 0
+       // Push all 3 nums into results array
+       // Increment 2nd index++, skipping any duplicates
+       // Decrement 3rd index--, skipping any duplicates
+    // Else if sum > 0, decrement 3rd index, skipping any duplicates
+    // Else, increment 2nd index, skipping any duplicates
   // Return results array
 };
 
