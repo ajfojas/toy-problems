@@ -17,7 +17,14 @@ A solution set is:
 */
 
 var threeSum = function(nums) {
-  // 
+  // Have a results array
+  // Iterate through nums array
+    // Do the 2Sum problem with nums.slice(i) and target is nums[i] * -1
+    // Create an object to store complements
+    // Iterate through nums.slice(i)
+      // If complement already exists in object, push([target * -1, complement[nums.slice(i)[j]], j]) into results array
+      // Else, complement[target - nums.slice(i)[j]] = nums.slice(i)[j]
+  // Return results array
 };
 
 // O() space - 
